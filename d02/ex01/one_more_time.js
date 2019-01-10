@@ -4,6 +4,7 @@ const argv = process.argv;
 const argc = argv.length;
 const months = {};
 const days = {};
+//(86400 * 12) + (2629743 * 11) + (43 * 31556926) + (12 * 3600) + (2 * 60)
 
 const main = () => {
   if (argc == 3) {
@@ -35,9 +36,8 @@ const checkDate = (query) => {
     console.log(hours);
     console.log(minutes);
     console.log(seconds);
-(86400 * 12) + (2629743 * 11) + (43 * 31556926) + (12 * 3600) + (2 * 60)
-    var date = new Date(day, dayOfMonth, month, year, hours, minutes, seconds)
-    console.log(date);
+    var data = new Date(year, month - 1, day, hours, minutes, seconds, 0).getTime() / 1000;
+    console.log(data);
   }
 }
 
